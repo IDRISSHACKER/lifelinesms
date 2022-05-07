@@ -33,7 +33,7 @@ Widget Head() {
         Positioned(
           top: 90,
           left: 20,
-          child: Text("Your Statistiques", 
+          child: Text("your statistics", 
           style: TextStyle(
             fontSize: 20,
             color: Colors.deepPurpleAccent,
