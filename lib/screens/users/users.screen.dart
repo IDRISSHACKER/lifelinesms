@@ -17,7 +17,11 @@ class _UsersScreen extends State<UsersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarLayout("Contacts"),
-      body: ListUsers()
+      body: ListUsers(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(Icons.add_box_rounded),
+      ),
 
     );
   }
