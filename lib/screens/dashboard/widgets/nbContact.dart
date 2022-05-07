@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
 
-Widget NbContact(int nbcontact) {
+Widget NbContact(Widget contactState) {
   return Container(
     padding: EdgeInsets.all(5.0),
     child: Card(
+      color: Colors.blueAccent,
       child: Container(
+        height: 120.0,
         padding: EdgeInsets.all(20.0),
         child: Center(
-          child: Column(
+          child: Row(
             children: [
-                Text("Nombre de contact",
-                style: TextStyle(
-                  color: Colors.grey
-                ),),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text("$nbcontact", 
+              Container(
+                child: Icon(Icons.verified_user_sharp, color: Colors.white10, size: 60.0,)
+              ),
+              Column(
+              children: [
+                  Text("Nombre de contact",
                   style: TextStyle(
-                     fontSize: 40,
-                     fontWeight: FontWeight.w900,
-                     //color: Colors.blueGrey
-                  )
-              )
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white38
+                  ),),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  contactState
+              ],
+            ),
             ],
-          ),
+          )
         ),
       ),      
     ),

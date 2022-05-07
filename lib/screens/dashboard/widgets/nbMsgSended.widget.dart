@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
 
-Widget NbMsgSended(int nbSMS) {
+Widget NbMsgSended(Widget nbSMS) {
   return Container(
     padding: EdgeInsets.all(5.0),
     child: Card(
+      color: Colors.deepPurple,
       child: Container(
         padding: EdgeInsets.all(20.0),
+        height: 120.0,
         child: Center(
-          child: Column(
+          child: Row(
             children: [
-                Text("Nombre de message envoyé",
+              Container(
+               child: Icon(Icons.send_and_archive_sharp, color: Colors.white10, size: 60.0,)
+              ),
+              Column(
+            children: [
+                Text("Number of messages sent",
                 style: TextStyle(
-                  color: Colors.grey
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white38
                 ),),
                 SizedBox(
                   height: 10.0,
                 ),
-                Text("$nbSMS", 
-                  style: TextStyle(
-                     fontSize: 40,
-                     fontWeight: FontWeight.w900,
-                     //color: Colors.blueGrey
-                  )
-              )
+                nbSMS
             ],
           ),
+            ]
+          )
         ),
       ),      
     ),

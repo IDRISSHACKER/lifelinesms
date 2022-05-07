@@ -2,11 +2,11 @@ class Message {
   late int id;
   late String content;
   late DateTime created_at;
-  late String name;
-  late String surname;
-  late String phone;
-  late String pays_id;
-  late String email;
+  late var name;
+  late var surname;
+  late var phone;
+  late var pays_id;
+  late var email;
 
   Message(
     this.id,

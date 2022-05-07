@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:lifelinesms/env/config.dart';
+import 'package:lifelinesms/utils/avatar.util.dart';
 import './../../../utils/load.util.dart';
 import './../../../models/User.model.dart';
 
@@ -16,7 +18,7 @@ class ListUsers extends StatefulWidget {
 
 class _ListUsers extends State<ListUsers> {
   final userController = ScrollController();
-  final url = "https://lifelinesms.org/server.php?page=getUsers";
+  final url = "$apiUri=getUsers";
   List<User> _users = [];
   List<User> _usersLimit = [];
   final int perPage = 10;
@@ -108,20 +110,17 @@ class _ListUsers extends State<ListUsers> {
     return (_users.isNotEmpty)
         ? ListView.builder(
             shrinkWrap: true,
-            itemCount: _users.length + 1,
+            itemCount: _users.length -1,
             //controller: userController,
             itemBuilder: (_, index) {
               if (index < _users.length) {
                 final user = _users[index];
                 return Container(
-                    margin: const EdgeInsets.only(top: 1.0, bottom: 1.0),
+                    margin: const EdgeInsets.only(top: 0.0, bottom: 0.0),
                     child: Card(
-                      elevation: 2.0,
+                      elevation: 1.0,
                       child: ListTile(
-                        leading: const Icon(
-                          Icons.contact_phone_rounded,
-                          color: Colors.deepPurple,
-                        ),
+                        leading: avatar(user.name.substring(0,1)),
                         title: Text("${user.name} ${user.surname}"),
                         subtitle: Text("+${user.pays_id}${user.phone}"),
                         trailing: IconButton(

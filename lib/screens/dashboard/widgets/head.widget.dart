@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 Widget Head() {
   return Container(
@@ -7,7 +8,10 @@ Widget Head() {
       borderRadius: BorderRadius.only(
         bottomRight: Radius.circular(50)
       ),
-      color: Colors.deepPurple
+      color: Colors.deepPurple,
+      image: DecorationImage(
+              image:  AssetImage("assets/img/individual_illustration-5c61db260714aaf0f713.png")
+            )
     ),
     child: Stack(
       children: [
