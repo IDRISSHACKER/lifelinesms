@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:lifelinesms/env/config.dart';
 import 'package:lifelinesms/utils/avatar.util.dart';
+import 'package:lifelinesms/utils/subStr.utils.dart';
 import './../../../utils/load.util.dart';
 import './../../../models/Message.model.dart';
 
@@ -86,7 +87,7 @@ class _ListMessages extends State<ListMessages> {
                         minVerticalPadding: 20.0,
                         leading: avatar(user.name.substring(0,1)),
                         title: Text("${user.name}"),
-                        subtitle: Text("${user.content.substring(1,37)}..."),
+                        subtitle: Text(subStr(user.content, 37)),
                         trailing: IconButton(
                           icon: const Icon(
                             Icons.message_rounded,
