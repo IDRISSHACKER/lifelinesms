@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+Widget Head() {
+  return Container(
+    height: 200,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.only(
+        bottomRight: Radius.circular(50)
+      ),
+      color: Colors.deepPurple
+    ),
+    child: Stack(
+      children: [
+        Positioned(
+          top: 60,
+          left: 0,
+          child: Container(
+            height: 80,
+            width: 300,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(60),
+              bottomRight: Radius.circular(50)
+            ),
+            color: Colors.white
+          ),
+        )
+        ),
+        Positioned(
+          top: 90,
+          left: 20,
+          child: Text("Your Statistiques", 
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.deepPurpleAccent,
+            fontWeight: FontWeight.w700
+          ),)
+        )
+      ],
+    ),
+  );
+}
