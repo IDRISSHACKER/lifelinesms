@@ -22,18 +22,22 @@ class _MainScreen extends State<MainScreen> {
     return Scaffold(
       body: screens[currentScreen],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentScreen,
         onTap: (value) => setState(() {
           currentScreen = value;
         }),
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
+        iconSize: 30.0,
         items: [
           BottomNavigationBarItem(
               backgroundColor: Colors.deepPurple,
               icon: Icon(Icons.dashboard_rounded),
-              label: "Dashboard v1"
+              label: "Dashboard"
               ),
           BottomNavigationBarItem(
               backgroundColor: Colors.deepPurple,
-              icon: Icon(Icons.contact_phone_rounded),
+              icon: Icon(Icons.contacts),
               label: "Contacts"),
           BottomNavigationBarItem(
               backgroundColor: Colors.deepPurple,
