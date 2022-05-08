@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:lifelinesms/env/config.dart';
@@ -28,29 +29,11 @@ class _ListMessages extends State<ListMessages> {
 
   Future fetchMsg() async {
     try {
-      List<Message> _usersTmp = [];
-      List users = [];
-
       final response = await get(Uri.parse(url));
       final jsonData = jsonDecode(response.body) as List;
-
-      users = jsonData;
-
-      for (int i = 0; i < users.length; i++) {
-        var user = users[i];
-        Message userFormat = Message(
-            user["id"],
-            user["content"],
-            DateTime.parse(user["created_at"]),
-            user["name"],
-            user["surname"],
-            user["phone"],
-            user["pays_id"],
-            user["email"]);
-        _usersTmp.add(userFormat);
-      }
+      List<Message> messageParsed = await compute(parseJsonToMessage, jsonData);
       setState(() {
-        _users = _usersTmp;
+        _users = messageParsed;
       });
     } catch (err) {
       print(err.toString());
@@ -77,29 +60,46 @@ class _ListMessages extends State<ListMessages> {
             itemCount: _users.length,
             //controller: userController,
             itemBuilder: (_, index) {
-              
-                final user = _users[index];
-                return Container(
-                    margin: const EdgeInsets.only(top: 0.0, bottom: 0.0),
-                    child: Card(
-                      elevation: 1.0,
-                      child: ListTile(
-                        minVerticalPadding: 20.0,
-                        leading: avatar(user.name.substring(0,1)),
-                        title: Text("${user.name}"),
-                        subtitle: Text(subStr(user.content, 37)),
-                        trailing: IconButton(
-                          icon: const Icon(
-                            Icons.message_rounded,
-                          ),
-                          onPressed: () {},
+              final user = _users[index];
+              return Container(
+                  margin: const EdgeInsets.only(top: 0.0, bottom: 0.0),
+                  child: Card(
+                    elevation: 1.0,
+                    child: ListTile(
+                      minVerticalPadding: 20.0,
+                      leading: avatar(user.name.substring(0, 1)),
+                      title: Text("${user.name}"),
+                      subtitle: Text(subStr(user.content, 37)),
+                      trailing: IconButton(
+                        icon: const Icon(
+                          Icons.message_rounded,
                         ),
-                        onLongPress: () {},
-                        onTap: () {},
+                        onPressed: () {},
                       ),
-                    ));
+                      onLongPress: () {},
+                      onTap: () {},
+                    ),
+                  ));
             },
           )
         : Load("loading messages");
   }
+}
+
+List<Message> parseJsonToMessage(List messages) {
+  List<Message> messagesParsed = [];
+  for (int i = 0; i < messages.length; i++) {
+    var message = messages[i];
+    Message messageParsed = Message(
+        message["id"],
+        message["content"],
+        DateTime.parse(message["created_at"]),
+        message["name"],
+        message["surname"],
+        message["phone"],
+        message["pays_id"],
+        message["email"]);
+    messagesParsed.add(messageParsed);
+  }
+  return messagesParsed;
 }

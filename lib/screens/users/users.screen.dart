@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lifelinesms/screens/screenAction/action/newUserAction.dart';
 import './../../layouts/appBarLayout.dart';
 import './widgets/listUsers.widget.dart';
 
@@ -18,10 +19,7 @@ class _UsersScreen extends State<UsersScreen> {
     return Scaffold(
       appBar: appBarLayout("Contacts"),
       body: ListUsers(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        child: Icon(Icons.add_box_rounded),
-      ),
+      floatingActionButton: newUserAction(context),
 
     );
   }

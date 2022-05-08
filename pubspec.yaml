@@ -74,6 +74,7 @@ flutter:
       - assets/img/undraw_Share_opinion_re_4qk7.png
       - assets/img/sended.png
       - assets/img/avatar.jpg
+      - assets/img/act.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
