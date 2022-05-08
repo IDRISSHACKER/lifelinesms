@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:lifelinesms/screens/sended/widgets/listMessages.widget.dart';
 import './../../layouts/appBarLayout.dart';
+import './../screenAction/action/newMessageAction.dart';
 
 class SendedScreen extends StatefulWidget {
   const SendedScreen({Key? key}) : super(key: key);
@@ -18,7 +19,8 @@ class _SendedScreen extends State<SendedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarLayout("Sended"),
-      body: ListMessages()
+      body: ListMessages(),
+      floatingActionButton: newMessageAction(context),
     );
   }
 }

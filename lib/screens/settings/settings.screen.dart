@@ -19,7 +19,7 @@ class _SettingsScreen extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarLayout("Settings"),
+      appBar: appBarLayout("Profile"),
       body: SingleChildScrollView(
         child: Center(
           child: Column(

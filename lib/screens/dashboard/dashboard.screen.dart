@@ -8,6 +8,7 @@ import './widgets/head.widget.dart';
 import './../../layouts/appBarLayout.dart';
 import 'package:http/http.dart';
 import 'package:lifelinesms/env/config.dart';
+import './../screenAction/action/newMessageAction.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -100,10 +101,7 @@ class _DashboardScreen extends State<DashboardScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.chat),
-        onPressed: () {},
-      ),
+      floatingActionButton: newMessageAction(context),
     );
   }
 }

@@ -46,7 +46,7 @@ class _MainScreen extends State<MainScreen> {
           BottomNavigationBarItem(
               backgroundColor: Colors.deepPurple,
               icon: Icon(Icons.settings_accessibility_rounded),
-              label: "Settings"),
+              label: "Profile"),
         ],
       ),
     );
