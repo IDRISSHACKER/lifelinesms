@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:lifelinesms/screens/settings/widgets/detailsSection.dart';
+import 'package:lifelinesms/screens/settings/widgets/signOutSection.dart';
 import './../../layouts/appBarLayout.dart';
 import './widgets/avatarSection.dart';
 
@@ -23,7 +25,10 @@ class _SettingsScreen extends State<SettingsScreen> {
           child: Column(
             children: [
               const SizedBox(height: 10,),
-              avatarSection(avatarPath)
+              avatarSection(avatarPath),
+              detailsSection(),
+              const SizedBox(height: 20,),
+              signOutSection()
             ],
           )
         ),
