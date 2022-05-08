@@ -32,7 +32,7 @@ class _formNewUser extends State<formNewUser> {
 
   Future displayCtg() async {
     List<DropdownMenuItem<int>> ctgs = await getGroupeParsedAsItem();
-
+    
     setState(() {
       ctgContacts = ctgs;
     });
@@ -93,22 +93,22 @@ class _formNewUser extends State<formNewUser> {
                               : null;
                         })),
                 ctgContacts.isEmpty
-                 ? Load("Chargement des categories") : TextFieldContainer(
-                  child: DropdownButtonFormField(
-                      items: ctgContacts,
-                      value: selectedCtg,
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.category_outlined),
-                          hintText: "Select category",
-                          labelText: "Select category",
-                          border: DefaultInputRadius()),
-                      onChanged: (dynamic selected) {
-                        print(selected);
-                        setState(() {
-                          selectedCtg = selected;
-                        });
-                      }),
-                ),
+                    ? const CircularProgressIndicator()
+                    : TextFieldContainer(
+                        child: DropdownButtonFormField(
+                            items: ctgContacts,
+                            value: selectedCtg,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.category_outlined),
+                                hintText: "Select category",
+                                labelText: "Select category",
+                                border: DefaultInputRadius()),
+                            onChanged: (dynamic selected) {
+                              setState(() {
+                                selectedCtg = selected;
+                              });
+                            }),
+                      ),
                 CustomBtn(
                     text: "Add contact",
                     icon: Icons.person_add_alt_1_outlined,
