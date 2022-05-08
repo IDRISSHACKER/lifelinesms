@@ -12,3 +12,15 @@ class User {
   User(this.id, this.name, this.surname, this.pays_id, this.email, this.phone,
       this.groupe_id, this.created_at, this.title);
 }
+
+class AddUser {
+  late String nom;
+  late String prenom;
+  late String email;
+  late String pays;
+  late String phone;
+  late int goupeId;
+
+  AddUser(
+      this.nom, this.prenom, this.email, this.pays, this.phone, this.goupeId);
+}

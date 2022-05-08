@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lifelinesms/http/contact.http.dart';
+import 'package:lifelinesms/http/groupe.http.dart';
+import 'package:lifelinesms/models/Groupe.model.dart';
+import 'package:lifelinesms/models/User.model.dart';
 import 'package:lifelinesms/utils/customBtn.dart';
 import 'package:lifelinesms/utils/customField.utils.dart';
+import 'package:lifelinesms/utils/load.util.dart';
 
 class formNewUser extends StatefulWidget {
   const formNewUser({Key? key}) : super(key: key);
@@ -14,14 +19,27 @@ class formNewUser extends StatefulWidget {
 }
 
 class _formNewUser extends State<formNewUser> {
-  List<DropdownMenuItem<int>> ctgContacts = [Ctg("master", 1), Ctg("hack", 2)];
+  List<DropdownMenuItem<int>> ctgContacts = [];
   String name = "";
   String phone = "";
-  int selectedCtg = 1;
+  int selectedCtg = 22;
+
+  @override
+  void initState() {
+    super.initState();
+    displayCtg();
+  }
+
+  Future displayCtg() async {
+    List<DropdownMenuItem<int>> ctgs = await getGroupeParsedAsItem();
+
+    setState(() {
+      ctgContacts = ctgs;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    int? selectedCtg = ctgContacts[0].value;
     return Form(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Container(
@@ -74,7 +92,8 @@ class _formNewUser extends State<formNewUser> {
                               ? "enter a valid phone number"
                               : null;
                         })),
-                TextFieldContainer(
+                ctgContacts.isEmpty
+                 ? Load("Chargement des categories") : TextFieldContainer(
                   child: DropdownButtonFormField(
                       items: ctgContacts,
                       value: selectedCtg,
@@ -93,14 +112,18 @@ class _formNewUser extends State<formNewUser> {
                 CustomBtn(
                     text: "Add contact",
                     icon: Icons.person_add_alt_1_outlined,
-                    onPress: () {
+                    onPress: () async {
                       final isValidForm = name.length > 1 && phone.length > 4;
 
                       if (isValidForm) {
-                        print(name);
-                        print(phone);
-                        print(selectedCtg);
-                        print("save");
+                        final AddUser user = AddUser(
+                            name, "", "", "237", phone, selectedCtg as int);
+                        bool addUser = await setUser(user);
+                        if (addUser) {
+                          print("user added");
+                        } else {
+                          print("User can not added");
+                        }
                       }
                     })
               ],
@@ -108,11 +131,4 @@ class _formNewUser extends State<formNewUser> {
           ),
         ));
   }
-}
-
-DropdownMenuItem<int> Ctg(String text, int id) {
-  return DropdownMenuItem<int>(
-    child: Text(text),
-    value: id,
-  );
 }
