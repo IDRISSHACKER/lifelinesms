@@ -59,6 +59,11 @@ class _DashboardScreen extends State<DashboardScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: homeAppBarLayout("Dashboard"),

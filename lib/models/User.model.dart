@@ -14,12 +14,12 @@ class User {
 }
 
 class AddUser {
-  late String nom;
-  late String prenom;
-  late String email;
-  late String pays;
-  late String phone;
-  late int goupeId;
+  late var nom;
+  late var prenom;
+  late var email;
+  late var pays;
+  late var phone;
+  late var goupeId;
 
   AddUser(
       this.nom, this.prenom, this.email, this.pays, this.phone, this.goupeId);

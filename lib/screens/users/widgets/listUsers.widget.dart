@@ -105,6 +105,10 @@ class _ListUsers extends State<ListUsers> {
     super.dispose();
   }
 
+  Future<void> _refresh() async {
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return (_users.isNotEmpty)
@@ -119,7 +123,10 @@ class _ListUsers extends State<ListUsers> {
                     margin: const EdgeInsets.only(top: 0.0, bottom: 0.0),
                     child: Card(
                       elevation: 1.0,
-                      child: ListTile(
+                      child: RefreshIndicator(
+                        triggerMode: RefreshIndicatorTriggerMode.anywhere,
+                        onRefresh: _refresh,
+                        child: ListTile(
                         leading: avatar(user.name.substring(0,1)),
                         title: Text("${user.name} ${user.surname}"),
                         subtitle: Text("+${user.pays_id}${user.phone}"),
@@ -132,6 +139,7 @@ class _ListUsers extends State<ListUsers> {
                         onLongPress: () {},
                         onTap: () {},
                       ),
+                    )
                     ));
               } else {
                 return Padding(
