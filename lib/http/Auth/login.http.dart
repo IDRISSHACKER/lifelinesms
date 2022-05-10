@@ -15,15 +15,17 @@ Future getAdmin() async {
     final data = await get(Uri.parse(uri));
     print(data);
     adminData = jsonDecode(data.body);
-    print(adminData);
+    var key = adminData["email"];
+    print(key);
   } catch (e) {
     print(e);
   }
+
+  return adminData;
 }
 
 Future<bool> verifyCredidential(String email, String password) async {
   dynamic admin = await getAdmin();
-
 
   if (admin["email"] == email && admin["password"] == password) {
     return true;
