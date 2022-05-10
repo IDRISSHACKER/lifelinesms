@@ -21,3 +21,8 @@ OutlineInputBorder DefaultInputRadius() {
   return OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10.0)));
 }
+
+OutlineInputBorder DefaultInputRadiusMessage() {
+  return OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(50)));
+}

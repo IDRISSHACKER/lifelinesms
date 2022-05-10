@@ -7,7 +7,7 @@ Widget NbMsgSended(Widget nbSMS) {
       color: Colors.deepPurple,
       child: Container(
         padding: EdgeInsets.all(20.0),
-        height: 120.0,
+        height: 130.0,
         child: Center(
           child: Row(
             children: [
