@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:lifelinesms/layouts/homeAppBarLayout.dart';
 import 'package:lifelinesms/screens/settings/widgets/detailsSection.dart';
 import 'package:lifelinesms/screens/settings/widgets/signOutSection.dart';
 import './../../layouts/appBarLayout.dart';
@@ -19,16 +20,17 @@ class _SettingsScreen extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarLayout("Profile"),
+      appBar: homeAppBarLayout("", Icon(Icons.verified_user_rounded, size: 34,)),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              const SizedBox(height: 10,),
               avatarSection(avatarPath),
+              const SizedBox(height: 7,),
               detailsSection(),
-              const SizedBox(height: 20,),
-              signOutSection()
+              const SizedBox(height: 7,),
+              signOutSection(),
+              const SizedBox(height: 7,),
             ],
           )
         ),

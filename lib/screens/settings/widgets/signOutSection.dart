@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 
 Widget signOutSection(){
   return Container(
-    child: OutlinedButton.icon(
+    width: double.infinity,
+    padding: EdgeInsets.only(right: 20, left: 20),
+    child: ElevatedButton.icon(
         onPressed: (){},
         icon: Icon(Icons.logout),
         label: Text("Disonnect"),
-        style: ButtonStyle(
-        ),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.pink,
+          minimumSize: Size(200, 50),
+          maximumSize: Size(200, 50),
+        ), 
     ),
   );
 }

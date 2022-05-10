@@ -36,17 +36,17 @@ class _formNewUser extends State<formNewUser> {
     displayCtg();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   Future displayCtg() async {
     List<DropdownMenuItem<int>> ctgs = await getGroupeParsedAsItem(2);
 
     setState(() {
       ctgContacts = ctgs;
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override

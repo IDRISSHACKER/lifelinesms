@@ -16,6 +16,11 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme,
         ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Colors.white,
+          unselectedItemColor: Colors.black54,
+          selectedItemColor: Colors.deepPurple
+        )
       ),
       home: MainScreen(),
     );
