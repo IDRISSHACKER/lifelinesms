@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lifelinesms/screens/auth/screens/login.screen.dart';
+import 'package:lifelinesms/screens/auth/screens/login/login.screen.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);

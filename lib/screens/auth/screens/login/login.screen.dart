@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lifelinesms/layouts/loginAppBarLayout.dart';
 import 'package:lifelinesms/screens/MainScreen.dart';
+import 'package:lifelinesms/screens/auth/screens/login/widgets/form.widget.dart';
+import 'package:lifelinesms/screens/auth/screens/login/widgets/header.widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,23 +16,20 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreen extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Center(
-        child: Container(
-          child: Column(
-            children: [
-              Text("Login here"),
-              ElevatedButton(
-                  onPressed: () {
-                     Navigator.push(context,
-                      MaterialPageRoute(builder: (_){
-                        return MainScreen();
-                      }
-                    )
-                    );
-                  },
-                  child: Text("Home page"))
-            ],
+    return Scaffold(
+      appBar: loginAppBarLayout(""),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                loginHeader(),
+                SizedBox(height: 70,), 
+                LoginForm(),
+                SizedBox(height: 30,)
+              ],
+            ),
           ),
         ),
       ),
