@@ -6,7 +6,7 @@ Widget NbContact(Widget contactState) {
     child: Card(
       color: Colors.blueAccent,
       child: Container(
-        height: 120.0,
+        height: 130.0,
         padding: EdgeInsets.all(20.0),
         child: Center(
           child: Row(

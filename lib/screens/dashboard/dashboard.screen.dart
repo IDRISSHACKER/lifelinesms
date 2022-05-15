@@ -66,7 +66,7 @@ class _DashboardScreen extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: homeAppBarLayout("Dashboard"),
+      appBar: homeAppBarLayout("Dashboard", Icon(Icons.home_repair_service)),
       body: SingleChildScrollView(
         child: Center(
           child: Column(

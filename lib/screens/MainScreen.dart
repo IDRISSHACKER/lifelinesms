@@ -26,25 +26,21 @@ class _MainScreen extends State<MainScreen> {
         onTap: (value) => setState(() {
           currentScreen = value;
         }),
-        showSelectedLabels: true,
+        showSelectedLabels: false,
         showUnselectedLabels: false,
         iconSize: 30.0,
         items: [
           BottomNavigationBarItem(
-              backgroundColor: Colors.deepPurple,
               icon: Icon(Icons.dashboard_rounded),
               label: "Dashboard"
               ),
           BottomNavigationBarItem(
-              backgroundColor: Colors.deepPurple,
               icon: Icon(Icons.contacts),
               label: "Contacts"),
           BottomNavigationBarItem(
-              backgroundColor: Colors.deepPurple,
               icon: Icon(Icons.message_rounded),
               label: "Messages"),
           BottomNavigationBarItem(
-              backgroundColor: Colors.deepPurple,
               icon: Icon(Icons.settings_accessibility_rounded),
               label: "Profile"),
         ],

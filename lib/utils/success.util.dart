@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 SnackBar Success(Icon icon, String message) {
   return SnackBar(
-    backgroundColor: Color(0xff218c74),
+    backgroundColor: Colors.deepPurple,
     content: Row(
     children: [
       icon,
